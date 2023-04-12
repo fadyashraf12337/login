@@ -1,0 +1,156 @@
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+    <link rel="stylesheet" href="style.css">
+         
+</head>
+<body>
+
+
+    <!-- LOGIN PAGE -->
+
+    
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">LOGIN</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="ENTER YOUR EMAIL PLEASE" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="ENTER PASSWORD" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">REMEMBER ME</label>
+                        </div>
+                        
+                        <a href="#" class="text">FORGOT PASSWORD?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="LOGIN">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">YOU ARE NOT A MEMBER?
+                        <a href="#" class="text signup-link">SIGN UP NOW</a>
+                    </span>
+                </div>
+            </div>
+
+
+
+
+            <!-- REGISTRATION PAGE -->
+
+
+
+
+            <div class="form signup">
+                <span class="title">REGISTRATION</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="ENTER YOUR NAME" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="ENTER YOUR EMAIL" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="CREATE A PASSWORD" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="CONFIRM PASSWORD" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon">
+                            <label for="termCon" class="text">I ACCEPTED ALL THE TERMS AND CONDITIONS</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="REGISTER">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">ALREADY A MEMBER ?
+                        <a href="#" class="text login-link">LOGIN IN NOW</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<!-- JAVASCRIPT-->
+
+
+<script>
+
+const container = document.querySelector(".container"),
+      pwShowHide = document.querySelectorAll(".showHidePw"),
+      pwFields = document.querySelectorAll(".password"),
+      signUp = document.querySelector(".signup-link"),
+      login = document.querySelector(".login-link");
+
+    pwShowHide.forEach(eyeIcon =>{
+        eyeIcon.addEventListener("click", ()=>{
+            pwFields.forEach(pwField =>{
+                if(pwField.type ==="password"){
+                    pwField.type = "text";
+
+                    pwShowHide.forEach(icon =>{
+                        icon.classList.replace("uil-eye-slash", "uil-eye");
+                    })
+                }else{
+                    pwField.type = "password";
+
+                    pwShowHide.forEach(icon =>{
+                        icon.classList.replace("uil-eye", "uil-eye-slash");
+                    })
+                }
+            }) 
+        })
+    })
+
+    // js code to appear signup and login form
+    signUp.addEventListener("click", ( )=>{
+        container.classList.add("active");
+    });
+    login.addEventListener("click", ( )=>{
+        container.classList.remove("active");
+    });
+
+
+</script>
+</html>
+
